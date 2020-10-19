@@ -2,7 +2,7 @@ import java.util.*;
 
 public class WordFrequencyGame {
 
-    public static final String WHITE_SPACES = "\\s+";
+    private static final String WHITE_SPACES = "\\s+";
 
     public String getResult(String inputStr){
 
@@ -36,7 +36,7 @@ public class WordFrequencyGame {
 
                 StringJoiner joiner = new StringJoiner("\n");
                 for (Input w : inputList) {
-                    String s = w.getValue() + " " +w.getWordCount();
+                    String s = String.format("%s %d", w.getValue(), w.getWordCount());
                     joiner.add(s);
                 }
                 return joiner.toString();
