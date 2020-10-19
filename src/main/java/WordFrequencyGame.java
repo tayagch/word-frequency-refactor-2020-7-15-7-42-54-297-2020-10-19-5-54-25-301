@@ -7,9 +7,10 @@ public class WordFrequencyGame {
     private static final String WHITE_SPACES = "\\s+";
 
     public String getResult(String inputStr){
-        List<WordInfos> wordInfosList = calculateWordFrequency(inputStr);
 
-        wordInfosList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+        List<WordInfos> wordInfosList = calculateWordFrequency(inputStr).stream()
+                .sorted(Comparator.comparing(WordInfos::getWordCount))
+                .collect(Collectors.toList());
 
         return joinWords(wordInfosList);
     }
