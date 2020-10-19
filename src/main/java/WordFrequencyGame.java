@@ -25,6 +25,6 @@ public class WordFrequencyGame {
         return words.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
-                .map(stringLongEntry -> new WordInfos(stringLongEntry.getKey(),Math.toIntExact(stringLongEntry.getValue()))).collect(Collectors.toList());
+                .map(entrySet -> new WordInfos(entrySet.getKey(),Math.toIntExact(entrySet.getValue()))).collect(Collectors.toList());
     }
 }
