@@ -6,9 +6,9 @@ public class WordFrequencyGame {
 
     private static final String WHITE_SPACES = "\\s+";
 
-    public String getResult(String inputStr){
+    public String getResult(String sentence){
 
-        List<WordInfos> wordInfosList = calculateWordFrequency(inputStr).stream()
+        List<WordInfos> wordInfosList = calculateWordFrequency(sentence).stream()
                 .sorted(Comparator.comparing(WordInfos::getWordCount))
                 .collect(Collectors.toList());
 
