@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
@@ -21,11 +22,9 @@ public class WordFrequencyGame {
 
     private List<WordInfos> calculateWordFrequency(String sentence){
         List<String> words = Arrays.asList(sentence.split(WHITE_SPACES));
-        List<WordInfos> wordInfos = new ArrayList<>();
-        for (String word : new HashSet<>(words)) {
-            int count = Collections.frequency(words,word);
-            wordInfos.add(new WordInfos(word,count));
-        }
-        return wordInfos;
+        return words.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .map(stringLongEntry -> new WordInfos(stringLongEntry.getKey(),Math.toIntExact(stringLongEntry.getValue()))).collect(Collectors.toList());
     }
 }
