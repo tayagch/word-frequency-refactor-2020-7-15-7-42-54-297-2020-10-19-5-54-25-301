@@ -6,19 +6,17 @@ public class WordFrequencyGame {
     private static final String WHITE_SPACES = "\\s+";
 
     public String getResult(String inputStr){
-        if (inputStr.split(WHITE_SPACES).length==1) {
-            return inputStr + " 1";
-        } else {
-            try {
-                List<WordInfos> wordInfosList = calculateWordFrequency(inputStr);
 
-                wordInfosList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+        try {
+            List<WordInfos> wordInfosList = calculateWordFrequency(inputStr);
 
-                return joinWords(wordInfosList);
-            } catch (Exception e) {
-                return "Calculate Error";
-            }
+            wordInfosList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+
+            return joinWords(wordInfosList);
+        } catch (Exception e) {
+            return "Calculate Error";
         }
+
     }
 
     private String joinWords(List<WordInfos> wordInfosList) {
