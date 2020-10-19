@@ -5,12 +5,9 @@ public class WordFrequencyGame {
     private static final String WHITE_SPACES = "\\s+";
 
     public String getResult(String inputStr){
-
-
         if (inputStr.split(WHITE_SPACES).length==1) {
             return inputStr + " 1";
         } else {
-
             try {
                 List<WordInfos> wordInfosList = calculateWordFrequency(inputStr);
 
@@ -18,8 +15,6 @@ public class WordFrequencyGame {
 
                 return joinWords(wordInfosList);
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
