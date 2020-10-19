@@ -28,8 +28,8 @@ public class WordFrequencyGame {
     private String joinWords(List<WordInfos> wordInfosList) {
         StringJoiner joiner = new StringJoiner("\n");
         for (WordInfos word : wordInfosList) {
-            String s = String.format("%s %d", word.getValue(), word.getWordCount());
-            joiner.add(s);
+            String wordLine = String.format("%s %d", word.getValue(), word.getWordCount());
+            joiner.add(wordLine);
         }
         return joiner.toString();
     }
